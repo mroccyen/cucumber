@@ -4,7 +4,7 @@ import com.flow.stack.fastws.starter.websocket.WebSocket;
 import com.flow.stack.fastws.starter.websocket.WebSocketManager;
 import com.flow.stack.fastws.starter.websocket.event.WebSocketCloseEvent;
 import com.flow.stack.fastws.starter.websocket.event.WebSocketConnectEvent;
-import com.flow.stack.fastws.starter.websocket.utils.SpringContextHolder;
+import com.flow.stack.fastws.starter.websocket.utils.ApplicationContextHolder;
 import com.flow.stack.fastws.starter.websocket.utils.WebSocketUtil;
 
 import java.util.Map;
@@ -30,7 +30,7 @@ public class MemWebSocketManager implements WebSocketManager {
     public void put(String identifier, WebSocket webSocket) {
         connections.put(identifier, webSocket);
         //发送连接事件
-        SpringContextHolder.getApplicationContext().publishEvent(new WebSocketConnectEvent(webSocket));
+        ApplicationContextHolder.getApplicationContext().publishEvent(new WebSocketConnectEvent(webSocket));
     }
 
     @Override
@@ -38,7 +38,7 @@ public class MemWebSocketManager implements WebSocketManager {
         WebSocket removedWebSocket = connections.remove(identifier);
         //发送关闭事件
         if (null != removedWebSocket) {
-            SpringContextHolder.getApplicationContext().publishEvent(new WebSocketCloseEvent(removedWebSocket));
+            ApplicationContextHolder.getApplicationContext().publishEvent(new WebSocketCloseEvent(removedWebSocket));
         }
     }
 

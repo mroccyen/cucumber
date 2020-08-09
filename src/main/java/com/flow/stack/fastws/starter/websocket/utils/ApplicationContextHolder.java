@@ -10,7 +10,7 @@ import org.springframework.context.ApplicationContextAware;
  * @version 0.0.1
  * @date 2020-08-06
  */
-public class SpringContextHolder implements ApplicationContextAware {
+public class ApplicationContextHolder implements ApplicationContextAware {
 
     private static ApplicationContext applicationContext;
 
@@ -19,7 +19,7 @@ public class SpringContextHolder implements ApplicationContextAware {
      */
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) {
-        SpringContextHolder.applicationContext = applicationContext;
+        ApplicationContextHolder.applicationContext = applicationContext;
     }
 
     /**

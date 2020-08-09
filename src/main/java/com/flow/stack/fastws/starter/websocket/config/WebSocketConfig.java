@@ -2,6 +2,7 @@ package com.flow.stack.fastws.starter.websocket.config;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
  * @version 0.0.1
  * @date 2020-08-06
  */
+@Import(ApplicationContextConfig.class)
 public class WebSocketConfig {
     /**
      * 链接：https://www.cnblogs.com/betterboyz/p/8669879.html

@@ -9,7 +9,7 @@ package com.flow.stack.fastws.starter.websocket.redis;
  */
 public interface RedisReceiver {
 
-    String RECEIVER_METHOD_NAME = "receiveMessage";
+    String RECEIVER_METHOD_NAME = "receive";
 
     /**
      * 回调方法

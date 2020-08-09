@@ -26,6 +26,11 @@
       "name": "flow.fastws.webSocket.heartCheck.trigger",
       "type": "java.lang.String",
       "description": "心跳检测间隔时间"
+    },
+    {
+      "name": "flow.fastws.webSocket.connect.path",
+      "type": "java.lang.String",
+      "description": "websocket连接地址，例如/websocket/connect/，前后的/必须要有"
     }
   ],
   "hints": []

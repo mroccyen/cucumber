@@ -1,11 +1,10 @@
 package com.flow.stack.fastws.starter.websocket.redis;
 
-import com.flow.stack.fastws.starter.websocket.WebSocketEndpoint;
-import com.flow.stack.fastws.starter.websocket.redis.action.ActionConfig;
-import com.flow.stack.fastws.starter.websocket.utils.SpringContextHolder;
 import com.flow.stack.fastws.starter.websocket.WebSocketManager;
 import com.flow.stack.fastws.starter.websocket.config.WebSocketConfig;
+import com.flow.stack.fastws.starter.websocket.endpoint.WebSocketEndpointImpl;
 import com.flow.stack.fastws.starter.websocket.heartbeat.WebSocketHeartBeatChecker;
+import com.flow.stack.fastws.starter.websocket.redis.action.ActionConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -28,7 +27,7 @@ import java.util.concurrent.CountDownLatch;
  * @date 2020-08-06
  * @see EnableRedisWebSocketManager
  */
-@Import({WebSocketConfig.class, WebSocketEndpoint.class, ActionConfig.class})
+@Import({WebSocketConfig.class, WebSocketEndpointImpl.class, ActionConfig.class})
 public class RedisWebSocketConfig {
 
     @Bean
@@ -48,8 +47,7 @@ public class RedisWebSocketConfig {
     }
 
     @Bean("receiver")
-    public RedisReceiver receiver(
-            @Autowired @Qualifier("latch") CountDownLatch latch) {
+    public RedisReceiver receiver(@Autowired @Qualifier("latch") CountDownLatch latch) {
         return new DefaultRedisReceiver(latch);
     }
 
@@ -67,16 +65,6 @@ public class RedisWebSocketConfig {
         container.addMessageListener(listenerAdapter, new PatternTopic(RedisWebSocketManager.CHANNEL));
         return container;
     }
-
-    /**
-     * applicationContext全局保存器
-     */
-    @Bean
-    @ConditionalOnMissingBean
-    public SpringContextHolder springContextHolder() {
-        return new SpringContextHolder();
-    }
-
 
     @Bean
     @ConditionalOnMissingBean

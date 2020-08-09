@@ -1,7 +1,7 @@
 package com.flow.stack.fastws.starter.websocket.redis;
 
 import com.alibaba.fastjson.JSONObject;
-import com.flow.stack.fastws.starter.websocket.utils.SpringContextHolder;
+import com.flow.stack.fastws.starter.websocket.utils.ApplicationContextHolder;
 import com.flow.stack.fastws.starter.websocket.WebSocketManager;
 import com.flow.stack.fastws.starter.websocket.redis.action.Action;
 import org.slf4j.Logger;
@@ -46,18 +46,18 @@ public class DefaultRedisReceiver implements RedisReceiver {
     }
 
     private Action getAction(String actionName) {
-        boolean containsBean = SpringContextHolder.getApplicationContext().containsBean(actionName);
+        boolean containsBean = ApplicationContextHolder.getApplicationContext().containsBean(actionName);
         if (!containsBean) {
             throw new RuntimeException("容器中不存在处理这个请求 " + actionName + " 的Action，请确保正确注入了");
         }
-        return SpringContextHolder.getBean(actionName, Action.class);
+        return ApplicationContextHolder.getBean(actionName, Action.class);
     }
 
     protected WebSocketManager getWebSocketManager() {
-        boolean containsBean = SpringContextHolder.getApplicationContext().containsBean(WebSocketManager.WEBSOCKET_MANAGER_NAME);
+        boolean containsBean = ApplicationContextHolder.getApplicationContext().containsBean(WebSocketManager.WEBSOCKET_MANAGER_NAME);
         if (!containsBean) {
             throw new RuntimeException("容器中不存在WebSocketManager，请确保正确注入webSocketManger");
         }
-        return SpringContextHolder.getBean(WebSocketManager.WEBSOCKET_MANAGER_NAME, WebSocketManager.class);
+        return ApplicationContextHolder.getBean(WebSocketManager.WEBSOCKET_MANAGER_NAME, WebSocketManager.class);
     }
 }
