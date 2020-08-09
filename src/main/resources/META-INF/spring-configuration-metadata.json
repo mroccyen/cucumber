@@ -1,0 +1,32 @@
+{
+  "groups": [
+  ],
+  "properties": [
+    {
+      "name": "flow.fastws.server.websocket.exporter.enable",
+      "type": "java.lang.Boolean",
+      "description": "是否注入ServerEndpointExporter"
+    },
+    {
+      "name": "flow.fastws.webSocket.heartCheck.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否开启心跳检测"
+    },
+    {
+      "name": "flow.fastws.webSocket.heartCheck.timeSpan",
+      "type": "java.lang.Integer",
+      "description": "检查到心跳更新时间大于这么毫秒就认为断开了（心跳时间）"
+    },
+    {
+      "name": "flow.fastws.webSocket.heartCheck.errorToleration",
+      "type": "java.lang.Integer",
+      "description": "容忍没有心跳次数"
+    },
+    {
+      "name": "flow.fastws.webSocket.heartCheck.trigger",
+      "type": "java.lang.String",
+      "description": "心跳检测间隔时间"
+    }
+  ],
+  "hints": []
+}
