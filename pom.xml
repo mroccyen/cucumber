@@ -4,6 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <groupId>com.flow.stack.boot</groupId>
     <artifactId>fastws-boot-starter-websocket</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>boot-starter</module>
+        <module>example</module>
+        <module>core</module>
+    </modules>
 
     <modelVersion>4.0.0</modelVersion>
     <version>0.0.1</version>
@@ -11,25 +17,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
-            <version>2.3.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-            <version>2.3.0.RELEASE</version>
-        </dependency>
-        <!-- json引用 -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.68</version>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
