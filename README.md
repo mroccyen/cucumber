@@ -1,1 +1,1 @@
-# fastws
+基于Springboot封装的websocket的starter，提供websocket会话状态管理、数据操作、心跳检测、SPI扩展、状态事件等功能。

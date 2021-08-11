@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.flow.stack.fastws.starter.websocket.config.WebSocketHeartBeatConfig
